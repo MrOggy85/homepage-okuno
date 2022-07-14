@@ -19,6 +19,11 @@ async function handler(req: Request): Promise<Response> {
     return new Response(file, {
       headers: {
         "content-type": contentType,
+  if (pathname === '/robots.txt') {
+    const file = await Deno.readFile(`${Deno.cwd()}/static/robots.txt`);
+    return new Response(file, {
+      headers: {
+        "content-type": 'text/plain',
       },
     });
   }
