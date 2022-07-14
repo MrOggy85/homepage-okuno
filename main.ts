@@ -2,28 +2,35 @@ import { serve } from "./deps.ts";
 
 const PORT = Number(Deno.env.get("PORT")) || 3000;
 
-const STATIC_FILES: Record<string, string> = {
-  '/static/reset.css': "text/css",
-  '/static/main.css': "text/css",
-  '/static/favicon.ico': "image/x-icon",
+const CONTENT_TYPES: Record<string, string> = {
+  "css": "text/css",
+  "ico": "image/x-icon",
+  "webp": "image/webp",
 };
 
 async function handler(req: Request): Promise<Response> {
   const { pathname } = new URL(req.url);
-  console.log('pathname', pathname);
+  console.log("pathname", pathname);
   if (pathname.startsWith("/static")) {
-    const contentType = STATIC_FILES[pathname];
-    console.log('contentType', contentType);
+    const pathnameSplit = pathname.split(".");
+    const end = pathnameSplit[pathnameSplit.length - 1];
+    const contentType = CONTENT_TYPES[end];
+    console.log("contentType", contentType);
 
     const file = await Deno.readFile(`${Deno.cwd()}/${pathname}`);
     return new Response(file, {
       headers: {
         "content-type": contentType,
-  if (pathname === '/robots.txt') {
+        "cache-control": "max-age=31536000",
+      },
+    });
+  }
+
+  if (pathname === "/robots.txt") {
     const file = await Deno.readFile(`${Deno.cwd()}/static/robots.txt`);
     return new Response(file, {
       headers: {
-        "content-type": 'text/plain',
+        "content-type": "text/plain",
       },
     });
   }
