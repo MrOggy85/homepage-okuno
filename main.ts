@@ -6,6 +6,7 @@ const CONTENT_TYPES: Record<string, string> = {
   "css": "text/css",
   "ico": "image/x-icon",
   "webp": "image/webp",
+  "png": "image/png",
 };
 
 async function handler(req: Request): Promise<Response> {
