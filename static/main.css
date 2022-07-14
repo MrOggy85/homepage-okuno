@@ -1,5 +1,10 @@
+html {
+  height: auto;
+}
+
 body {
   margin: 0;
+  background-image: url(stars.png);
 }
 
 main {
@@ -10,8 +15,7 @@ main {
 }
 
 html,
-body,
-main {
+body {
   background-color: #191d21;
 }
 
