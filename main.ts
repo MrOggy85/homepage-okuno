@@ -12,6 +12,7 @@ const CONTENT_TYPES: Record<string, string> = {
 async function handler(req: Request): Promise<Response> {
   const { pathname } = new URL(req.url);
   console.log("pathname", pathname);
+
   if (pathname.startsWith("/static")) {
     const pathnameSplit = pathname.split(".");
     const end = pathnameSplit[pathnameSplit.length - 1];
@@ -35,8 +36,21 @@ async function handler(req: Request): Promise<Response> {
       },
     });
   }
+  if (pathname === "/favicon.ico") {
+    const file = await Deno.readFile(`${Deno.cwd()}/static/favicon.ico`);
+    return new Response(file, {
+      headers: {
+        "content-type": "image/x-icon",
+      },
+    });
+  }
+  if (!pathname.endsWith('/')) {
+    const url = new URL(req.url);
+    return Response.redirect(`${url.href}/`, 307);
+  }
 
-  const file = await Deno.readFile("./index.html");
+  const path = `${Deno.cwd()}${pathname}index.html`
+  const file = await Deno.readFile(path);
   return new Response(file, {
     headers: {
       "content-type": "text/html",
