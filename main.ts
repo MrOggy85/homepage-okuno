@@ -44,12 +44,12 @@ async function handler(req: Request): Promise<Response> {
       },
     });
   }
-  if (!pathname.endsWith('/')) {
+  if (!pathname.endsWith("/")) {
     const url = new URL(req.url);
     return Response.redirect(`${url.href}/`, 307);
   }
 
-  const path = `${Deno.cwd()}${pathname}index.html`
+  const path = `${Deno.cwd()}${pathname}index.html`;
   const file = await Deno.readFile(path);
   return new Response(file, {
     headers: {
