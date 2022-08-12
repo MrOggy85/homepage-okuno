@@ -6,6 +6,6 @@
 	m=f.getElementsByTagName('script')[0];
 	o.async=1; o.src=t; o.id='fathom-script';
 	m.parentNode.insertBefore(o,m)
-})(document, window, '//monitor.okuno.se/banana.js', 'fathom');
+})(document, window, '//monitor.okuno.se/tracker.js', 'fathom');
 fathom('set', 'siteId', 'YNUQW');
 fathom('trackPageview');
