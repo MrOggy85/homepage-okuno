@@ -74,6 +74,10 @@ body main a {
   text-decoration: none;
 }
 
+body main a:hover {
+  background: #2d3947;
+}
+
 body main h2 {
   border-bottom: 0;
   margin-bottom: 0;
