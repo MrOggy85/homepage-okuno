@@ -12,7 +12,13 @@ const CONTENT_TYPES: Record<string, string> = {
 
 async function handler(req: Request): Promise<Response> {
   const { pathname } = new URL(req.url);
-  console.log("pathname", pathname);
+  console.log({
+    url: req.url,
+    pathname: pathname,
+    referrer: req.referrer ?? req.headers.get("referer"),
+    "user-agent": req.headers.get("user-agent"),
+    "accept-language": req.headers.get("accept-language"),
+  });
 
   const pathnameSplit = pathname.split(".");
   const end = pathnameSplit[pathnameSplit.length - 1];
@@ -59,5 +65,8 @@ async function handler(req: Request): Promise<Response> {
   });
 }
 
-console.log(`Server is listening on port ${PORT}`);
+console.log("Server started", {
+  port: PORT,
+  DENO_REGION: Deno.env.get("DENO_REGION"),
+});
 await serve(handler, { port: PORT });
