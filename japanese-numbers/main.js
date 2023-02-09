@@ -46,7 +46,7 @@ function enter() {
 const synth = window.speechSynthesis;
 
 function speak(text) {
-  var utterThis = new SpeechSynthesisUtterance(text);
+  const utterThis = new SpeechSynthesisUtterance(text);
   voices = synth.getVoices();
   let foundJapanese = false;
   voices.forEach(x => {
