@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Japanese Numbers</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="description"
+    content="Oskar Okuno is a Frontend Dev with experince with React, React Native, Vue. As a Fullstack Dev he also uses Node.js, Go, Java and C#.">
+  <meta name="robots" content="index, follow" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="styles.css" rel="stylesheet" media="none" onload="if(media!='all')media='all'">
+  <link rel="shortcut icon" href="../static/favicon.ico" type="image/x-icon" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <h1>Welcome to Japanese Numbers!</h1>
+
+    <p id="result">&nbsp;</p>
+    <p id="message">Press ENTER for next number</p>
+
+    <button id="enter">ENTER</button>
+    <input id="guessInput" type="text" />
+    <button id="guess">GUESS</button>
+  </div>
+  <div class="stats-wrapper">
+    <p>Stats: <span id="stats" /></p>
+    <p>Success Rate: <span id="rate" /></p>
+  </div>
+  <div class="option-wrapper">
+    <label for="maxNumber">Max Number</label>
+    <input id="maxNumber" type="number" />
+  </div>
+  <div class="creator-wrapper">
+    <p>Created by: <a href="/">Oskar Okuno</a></p>
+  </div>
+
+  <script type="text/javascript" src="main.js"></script>
+
+  <!-- Fathom - simple website analytics - https://github.com/usefathom/fathom -->
+  <script>
+    (function (f, a, t, h, o, m) {
+      a[h] = a[h] || function () {
+        (a[h].q = a[h].q || []).push(arguments);
+      };
+      o = f.createElement('script'),
+        m = f.getElementsByTagName('script')[0];
+      o.async = 1; o.src = t; o.id = 'fathom-script';
+      m.parentNode.insertBefore(o, m);
+    })(document, window, '//monitor.oskarlindgren.se/tracker.js', 'fathom');
+    fathom('set', 'siteId', 'NYKME');
+    fathom('trackPageview');
+  </script>
+  <!-- / Fathom -->
+</body>
+
+</html>
