@@ -27,6 +27,13 @@ async function readFile(path: string): Promise<Uint8Array | null> {
   }
 }
 
+// Moved to their own subdomains. 301 rather than the 307 used for trailing
+// slashes: only a permanent redirect passes ranking on to the new URL.
+const MOVED: Record<string, string> = {
+  "/blog": "https://blog.okuno.se",
+  "/cv": "https://cv.okuno.se",
+};
+
 function notFound(): Response {
   return new Response("404 Not Found", {
     status: 404,
@@ -35,7 +42,8 @@ function notFound(): Response {
 }
 
 async function handler(req: Request): Promise<Response> {
-  const { pathname } = new URL(req.url);
+  const url = new URL(req.url);
+  const { pathname } = url;
   console.log({
     url: req.url,
     pathname: pathname,
@@ -43,6 +51,15 @@ async function handler(req: Request): Promise<Response> {
     "user-agent": req.headers.get("user-agent"),
     "accept-language": req.headers.get("accept-language"),
   });
+
+  // Before any file lookup, so a path like /blog/x.css redirects rather than
+  // falling through to the static branch.
+  for (const [prefix, target] of Object.entries(MOVED)) {
+    if (pathname === prefix || pathname.startsWith(`${prefix}/`)) {
+      const rest = pathname.slice(prefix.length) || "/";
+      return Response.redirect(`${target}${rest}${url.search}`, 301);
+    }
+  }
 
   const pathnameSplit = pathname.split(".");
   const end = pathnameSplit[pathnameSplit.length - 1];
@@ -87,7 +104,6 @@ async function handler(req: Request): Promise<Response> {
   if (!file) return notFound();
 
   if (!pathname.endsWith("/")) {
-    const url = new URL(req.url);
     return Response.redirect(`${url.href}/`, 307);
   }
 
