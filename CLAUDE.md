@@ -23,7 +23,7 @@ deno task dev      # watch mode on :3000, or set PORT
 
 ## Deploy
 
-Deno Deploy (the new platform, not Classic). Entrypoint is set in `deno.json`
+Deno Deploy (console.deno.com). Entrypoint is set in `deno.json`
 under `deploy.runtime`. Two constraints that are easy to break:
 
 - Use `Deno.serve()`. The std `serve()` is unsupported and fails at warmup.
