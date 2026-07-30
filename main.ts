@@ -118,10 +118,14 @@ async function handler(req: Request): Promise<Response> {
 Deno.serve({
   port: PORT,
   onListen: ({ port, hostname }) => {
+    // Which code, in which environment — the first thing you want when
+    // something looks wrong in production. All undefined outside Deploy.
     console.log("Server started", {
       hostname,
       port,
-      DENO_REGION: Deno.env.get("DENO_REGION"),
+      DENO_DEPLOYMENT_ID: Deno.env.get("DENO_DEPLOYMENT_ID"),
+      DENO_DEPLOY_BUILD_ID: Deno.env.get("DENO_DEPLOY_BUILD_ID"),
+      DENO_TIMELINE: Deno.env.get("DENO_TIMELINE"),
     });
   },
 }, handler);

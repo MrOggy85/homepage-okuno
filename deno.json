@@ -1,6 +1,6 @@
 {
   "tasks": {
-    "dev": "deno run --watch --allow-net --allow-read --allow-env=NODE_DEBUG,PORT,DENO_REGION main.ts",
+    "dev": "deno run --watch --allow-net --allow-read --allow-env=NODE_DEBUG,PORT,DENO_DEPLOYMENT_ID,DENO_DEPLOY_BUILD_ID,DENO_TIMELINE main.ts",
     "start": "deno run --allow-net --allow-read --allow-env main.ts"
   },
   "deploy": {
