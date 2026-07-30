@@ -15,9 +15,6 @@ deno task dev      # http://localhost:3000, override with PORT
 Each lives in its own directory as an `index.html`:
 
 - `/` — landing page
-- `/tips-tricks/`
-- `/crypto-web3/`
-- `/quotes/`
 - `/japanese-numbers/` — small interactive drill
 
 Shared CSS, JS and images are in `static/`.

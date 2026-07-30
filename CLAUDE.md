@@ -6,8 +6,8 @@ pages and assets. No framework, no build step, no dependencies.
 ## Layout
 
 - `main.ts` — the whole server. Routing is a chain of `if` checks on `pathname`.
-- `index.html` — root page. Each subdirectory (`quotes/`, `tips-tricks/`,
-  `crypto-web3/`, `japanese-numbers/`) holds its own `index.html`.
+- `index.html` — root page. Each subdirectory (currently just
+  `japanese-numbers/`) holds its own `index.html`.
 - `static/` — shared CSS, JS, images, `robots.txt`, `favicon.ico`.
 
 Paths without a trailing slash get a 307 redirect to the slash form, which then
