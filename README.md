@@ -7,7 +7,7 @@ step, no dependencies.
 ## Develop
 
 ```
-deno task dev      # http://localhost:3000, override with PORT
+deno task dev      # http://localhost:8000, override with PORT
 ```
 
 ## Pages

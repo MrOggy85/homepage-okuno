@@ -1,4 +1,5 @@
-const PORT = Number(Deno.env.get("PORT")) || 3000;
+// 8000 is what Deploy expects; PORT still wins if the platform injects one.
+const PORT = Number(Deno.env.get("PORT")) || 8000;
 
 // Deploy runs the app from a different cwd than the source root, so resolve
 // files relative to this module instead of Deno.cwd().

@@ -16,7 +16,7 @@ resolves to `<dir>/index.html`.
 ## Run
 
 ```
-deno task dev      # watch mode on :3000, or set PORT
+deno task dev      # watch mode on :8000, or set PORT
 ```
 
 `deno check main.ts` and `deno lint` before committing.
