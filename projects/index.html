@@ -19,13 +19,22 @@
     <h1>Projects</h1>
 
     <div class="subpage-content">
-      <ul>
-        <li>
-          <a href="https://github.com/MrOggy85/claude-in-docker">claude-in-docker</a>
-          - Running Claude Code in a Docker container.
-        </li>
-        <!-- Add more projects here -->
-      </ul>
+      <article class="project">
+        <h2><a href="https://github.com/MrOggy85/claude-in-docker">claude-in-docker</a></h2>
+        <p>
+          A solution for running Claude Code inside a Docker container.
+        </p>
+        <p>
+          I started tinkering with this after almost getting pwned by a
+          malicious <code>settings.json</code> planted in a repo. Claude Code
+          picks up project-level settings when it starts, so a file checked into a
+          repo can grant itself permissions and run commands on your machine before
+          you notice. Running the agent in a container means whatever it does, it
+          does in there — not on the host.
+        </p>
+      </article>
+
+      <!-- Add more projects here -->
     </div>
   </main>
 

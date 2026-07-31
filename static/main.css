@@ -98,6 +98,26 @@ body main h2 {
   margin: 1em 0;
 }
 
+.project {
+  font-size: 1.1em;
+  margin: 2em 0;
+}
+
+/* h2 is centered globally; project titles read better flush left */
+.project h2 {
+  text-align: left;
+  margin-bottom: 0.3em;
+}
+
+.project p+p {
+  margin-top: 0.8em;
+}
+
+.project code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.9em;
+}
+
 header {
   font-size: 1.5em;
   text-align: center;
