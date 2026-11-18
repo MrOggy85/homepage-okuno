@@ -109,6 +109,14 @@ body main h2 {
   margin-bottom: 0.3em;
 }
 
+.project img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 0.5em 0 1em;
+  border-radius: 6px;
+}
+
 .project p+p {
   margin-top: 0.8em;
 }
