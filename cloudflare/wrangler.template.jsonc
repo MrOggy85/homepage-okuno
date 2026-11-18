@@ -8,7 +8,7 @@
 
   // A Route on the zone, not a Custom Domain: a Custom Domain gets its own certificate,
   // which publishes the hostname in Certificate Transparency. The proxied record
-  // (AAAA 100::) is made by hand. workers.dev is on only until that record exists.
+  // (AAAA 100::) is made by hand. workers.dev is off (WORKERS_DEV=false) since the record exists, 2026-11-18.
   "workers_dev": __WORKERS_DEV__,
   "preview_urls": false,
   "routes": [{ "pattern": "__HOSTNAME__/*", "zone_name": "__ZONE__" }],
