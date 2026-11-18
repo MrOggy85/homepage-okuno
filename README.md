@@ -21,5 +21,6 @@ Shared CSS, JS and images are in `static/`.
 
 ## Deploy
 
-Deployed to [Deno Deploy](https://console.deno.com). The entrypoint (`main.ts`)
+Deployed to Cloudflare Workers as static files since 2026-11-18 (`cloudflare/wr deploy`;
+see `CLAUDE.md`). Until then it ran on [Deno Deploy](https://console.deno.com). The entrypoint (`main.ts`)
 is configured in `deno.json` under `deploy.runtime`.

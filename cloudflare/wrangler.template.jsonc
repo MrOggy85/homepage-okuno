@@ -1,0 +1,23 @@
+// Template for wrangler.jsonc, which ./wr renders from this file and .env, so the
+// account id and hostname stay out of the repo. Edit this file, never the output.
+{
+  "$schema": "/opt/cloudflare/node_modules/wrangler/config-schema.json",
+  "name": "homepage",
+  "compatibility_date": "2026-11-01",
+  "account_id": "__CF_ACCOUNT_ID__",
+
+  // A Route on the zone, not a Custom Domain: a Custom Domain gets its own certificate,
+  // which publishes the hostname in Certificate Transparency. The proxied record
+  // (AAAA 100::) is made by hand. workers.dev is off (WORKERS_DEV=false) since the record exists, 2026-11-18.
+  "workers_dev": __WORKERS_DEV__,
+  "preview_urls": false,
+  "routes": [{ "pattern": "__HOSTNAME__/*", "zone_name": "__ZONE__" }],
+
+  // Static files only, no Worker code: dist/ from build.sh, with _redirects (/blog, /cv)
+  // and _headers. /projects redirects to /projects/ as main.ts did.
+  "assets": {
+    "directory": "../dist",
+    "html_handling": "auto-trailing-slash",
+    "not_found_handling": "none"
+  }
+}

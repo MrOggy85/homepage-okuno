@@ -1,3 +1,8 @@
 .vscode
 .DS_Store
 .claude/settings.local.json
+dist/
+cloudflare/.env
+cloudflare/wrangler.jsonc
+cloudflare/node_modules
+cloudflare/.wrangler/
