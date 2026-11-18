@@ -36,3 +36,12 @@ under `deploy.runtime`. Two constraints that are easy to break:
 - Conventional commit prefixes (`feat:`, `chore:`, `fix:`).
 - Keep comments brief. Only explain non-obvious constraints; skip anything the
   code already says.
+
+## Deploy (since 2026-11-18)
+
+Cloudflare Workers, static assets only, at `www.okuno.se` (a Route on a proxied record).
+`cloudflare/wr deploy` runs `cloudflare/build.sh`, which assembles `dist/` from the files
+`main.ts` serves, then uploads it. `main.ts` stays the local server (`run.sh`), so **a
+change to its routing must be mirrored in `build.sh`**: the `/blog` and `/cv` 301s live in
+`dist/_redirects`, the year-long cache in `dist/_headers`. A new top-level page directory
+must be added to the `cp` line there, or it exists only locally.
