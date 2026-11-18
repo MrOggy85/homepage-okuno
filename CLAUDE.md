@@ -21,7 +21,7 @@ deno task dev      # watch mode on :8000, or set PORT
 
 `deno check main.ts` and `deno lint` before committing.
 
-## Deploy
+## Deploy (old: Deno Deploy, until 2026-11-18)
 
 Deno Deploy (console.deno.com). Entrypoint is set in `deno.json`
 under `deploy.runtime`. Two constraints that are easy to break:
